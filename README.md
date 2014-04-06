@@ -17,4 +17,5 @@ Install
 go get -u github.com/iansmith/d3
 ````
 
-Check out the [demo](http://iansmith.github.io/d3).
+Check out the [demo](http://iansmith.github.io/d3/tutorial.html).
+  
