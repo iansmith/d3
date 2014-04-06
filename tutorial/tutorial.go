@@ -161,17 +161,6 @@ func part3_bars(overall_width, overall_height, top, right, bottom, left int64) {
 			return float64(height) - y.LinearF(obj, extractFreq)
 		})
 		rect.AttrF(propWidth, x.RangeBandF())
-
-		/*
-			text := bar.Append(textTag)
-			text.AttrF(propX, x.RangeBandF()/float64(2.0))
-			text.AttrFuncF(propY, func(obj js.Object) float64 {
-				return y.LinearF(obj, extractFreq) + float64(3.0)
-			})
-			text.AttrS(propDy, ".75em")
-			text.Text(func(obj js.Object) string {
-				return fmt.Sprintf("%f", extractFreq(obj))
-			})*/
 	})
 }
 
