@@ -1,9 +1,9 @@
 package main
 
 import (
-	"d3"
 	"fmt"
 	"github.com/gopherjs/gopherjs/js"
+	"github.com/iansmith/d3"
 	"honnef.co/go/js/console"
 	_ "reflect"
 	"strconv"
@@ -34,8 +34,8 @@ var (
 //convert object with string fields into one with parsed fields
 func filterIntData(obj js.Object) js.Object {
 	result := js.Global.Get("Object").New()
-	result.Set("name", obj.Get("name").String())
-	s := obj.Get("value").String()
+	result.Set("name", obj.Get("name").Str())
+	s := obj.Get("value").Str()
 	i, err := strconv.ParseInt(s, 10, 64)
 	if err != nil {
 		console.Error("unable to parse ", s, " in the dataset: IGNORED")
@@ -87,8 +87,8 @@ func part2_bars(width int64, barHeight int64) {
 
 func filterFloatData(obj js.Object) js.Object {
 	result := js.Global.Get("Object").New()
-	result.Set("letter", obj.Get("letter").String())
-	s := obj.Get("frequency").String()
+	result.Set("letter", obj.Get("letter").Str())
+	s := obj.Get("frequency").Str()
 	f, err := strconv.ParseFloat(s, 64)
 	if err != nil {
 		console.Error("unable to parse ", s, " in the dataset: IGNORED")
