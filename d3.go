@@ -26,7 +26,7 @@ type Selection interface {
 	SelectAll(Selector) Selection
 	Data(js.Object) Selection
 	Enter() Selection
-	Style(PropertyName, func(int64) string) Selection
+	Style(PropertyName, func(js.Object) string) Selection
 	StyleS(PropertyName, string) Selection
 	Text(func(js.Object) string) Selection
 	TextS(string) Selection
@@ -78,7 +78,7 @@ func (self *selectionImpl) Append(n TagName) Selection {
 
 //Style modifies the CSS attribute prop of the selection.  The function
 //is passed each element of the data set to use in computing the value.
-func (self *selectionImpl) Style(prop PropertyName, f func(int64) string) Selection {
+func (self *selectionImpl) Style(prop PropertyName, f func(js.Object) string) Selection {
 	console.Log("calling style", self.obj, prop, f)
 	return &selectionImpl{
 		self.obj.Call("style", string(prop), f),
